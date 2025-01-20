@@ -32,6 +32,33 @@ body {
   width: 100%;
 }
 
+main {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    text-align: center;
+  }
+  &.introduction {
+    text-align: center;
+  }
+}
+
+article {
+  .title {
+    text-align: center;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -71,16 +98,69 @@ h1 {
   line-height: 1.1;
 }
 
+h2 {
+  font-size: 2.8rem;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 2.8rem;
+  text-transform: uppercase;
+}
+
 #app {
   width: 100%;
 }
 
-.card {
-  padding: 2em;
+.video-reel {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin: auto;
+  padding: 0;
+  max-width: 1140px;
+  overflow-x: scroll;
+  
+
+  .card {
+    flex-shrink: 0;
+    text-align: center;
+    border-radius: 1rem;
+    color: white;
+    background-color: #242424;
+    padding: 2em;
+    width: 200px;
+    height: 500px;
+
+    &:hover {
+      color: #1a1a1a;
+      background-color: #c4c4c4;
+      transition: background-color 0.3s ease-in-out;
+    }
+  }
+  
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    
+  .cloud_img {
+    margin: auto;
+    width: 150px;
+  }
+  }
 }
 
-.read-the-docs {
-  color: #888;
+.info-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+
+  div {
+    border: 2px solid black;
+    height: 200px;
+  }
 }
 
 button {
