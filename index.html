@@ -4,14 +4,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <title>Vite + TS</title>
   </head>
   <body>
     <div id="app">
-      <nav class="flex">
+      <nav class="flex header">
         <ul class="nav-left">
           <div class="logo logo_small">
-            <img src="/logo.jpg" alt="">
+            <img src="/sync_logo.svg" alt="">
+            <h2 class="logo__text">SYNC</h2>
           </div>
           <li>
             <a href="#">Home</a>
@@ -24,13 +27,14 @@
           </li>
         </ul>
         <div class="nav-right">
-          <button>Get in Touch</button>
+          <a class="cta" href="#get-in-touch">Get in Touch</a>
         </div>
       </nav>
       <header>
-        <div class="hero">
+        <div id="hero">
           <div class="logo logo_xl">
-            <img src="/logo.jpg" alt="">
+            <img id="sync_logo_top" src="/sync_logo_top.svg" alt="">
+            <img id="sync_logo_bottom" src="/sync_logo_bottom.svg" alt="">
           </div>
         </div>
       </header>
@@ -61,6 +65,38 @@
             <div></div>
             <div></div>
             <div></div>
+          </div>
+        </section>
+        <section id="get-in-touch">
+          <h3 class="title">Get in Touch</h3>
+          <article class="form-container" >
+            <form aria-expanded="true" action="action_page.php">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Your name..">
+          
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+          
+              <label for="country">Country</label>
+              <select id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+              </select>
+          
+              <label for="subject">Subject</label>
+              <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+          
+              <input class="cta" type="submit" value="Submit">
+            </form>
+          </article>
+          <nav class=" flex button-container">
+            <button aria-controls="form-container" class="cta cta-dark" id="open-form-button">Inquire</button>
+            <ul class="social-media">
+              <li><a href="https://www.instagram.com/musicmilitia.ent/"><i class="fa-brands fa-instagram fa-2xl"></i></a></li>
+              <li><a href="https://open.spotify.com/user/31jcwc7hcbjnax34nyxvam2aad4m?si=ea5a56d854594642"><i class="fa-brands fa-spotify fa-2xl"></i></a></li>
+              <li><a href="https://www.instagram.com/musicmilitia.ent/"><i class="fa-brands fa-tiktok fa-2xl"></i></a></li>
+              </ul>
           </div>
         </section>
       </main>

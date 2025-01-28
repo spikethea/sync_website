@@ -1,3 +1,14 @@
+
+
+html {
+  scroll-behavior: smooth;
+
+  // VARIABLES
+  --border-radius: 0.2em;
+}
+
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -15,14 +26,21 @@
 
 // DEFAULTS
 
+a, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+  
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: inherit;
   text-decoration: inherit;
+  &:hover {
+    color: #535bf2;
+  }
 }
-a:hover {
-  color: #535bf2;
-}
+
 
 body {
   margin: 0;
@@ -40,6 +58,8 @@ main {
 section {
   display: flex;
   flex-direction: column;
+
+  padding: 4em 0;
 
   .title {
     text-align: center;
@@ -62,34 +82,113 @@ article {
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 1.2rem;
+  padding: 1.2rem 0;
+
+  &.header {
+    margin: 1.2rem;
+  }
 
   .nav-left, .nav-right {
     display: flex;
     flex-direction: row;
     align-items: center;
-    li {
+   
+  }
+  
+  li {
       padding: 0em 2em;
       list-style-type: none;
-    }
   }
 }
 
+// CONTACT FORM
+
+.form-container {
+  min-height: 15rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin: 1em 0;
+  overflow: hidden;
+
+  &[aria-expanded="true"]{
+    max-height: max-content;
+  }
+  
+  label {
+    padding-bottom: 0.5em;
+  }
+
+  input, select, textarea {
+    font-size: 1.6em;
+    border-radius: var(--border-radius);
+    padding: 0.2em;
+  }
+
+  transition: max-height 0.3s ease-in;
+}
+
+// CUSTOM CLASSES
+
+.cta {
+  max-width: 160px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #dadada;
+  color: black;
+  cursor: pointer;
+  transition: border-color 0.25s;
+    &:hover {
+    border-color: #646cff;
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline: 4px auto -webkit-focus-ring-color;
+    }
+
+
+    &-dark {
+      color: white;
+      background-color: #213547;
+    }
+}
+
+
+
 
 .logo {
+  position: relative;
   display: flex;
   &_small {
     height: 50px;
-    width: 50px;
+    width: auto;
   }
 
   &_xl {
     height: 750px;
-    width: 750px;
+    width: auto;
   }
 
   img {
     object-fit: contain;
+  }
+
+  &__text {
+    filter: drop-shadow(0 0 0.75rem white);
+    position: absolute;
+    top: 70px;
+    left: 0px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    z-index: 5;
   }
 }
 
@@ -101,6 +200,7 @@ h1 {
 h2 {
   font-size: 2.8rem;
   text-transform: uppercase;
+  font-weight: lighter;
 }
 
 h3 {
@@ -154,7 +254,8 @@ h3 {
 .info-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 
   div {
@@ -163,29 +264,10 @@ h3 {
   }
 }
 
-button {
-  border-radius: 16px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
 // HERO
 
-.hero {
+#hero {
+  overflow: hidden;
   display: flex;
   justify-content: center;
 }
@@ -200,5 +282,57 @@ button:focus-visible {
   }
   button {
     background-color: #c4c4c4;
+  }
+}
+
+// GET IN TOUCH
+
+#get-in-touch {
+  color: white;
+  background-color: #242424;
+  position: relative;
+
+
+  // background image/color
+  > * {
+    z-index: 3;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: #242424;
+    top: 0;
+    left: calc(0px - 50vw + 578px - var(--scrollbarWidth));
+    width: 100vw;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    opacity: 20%;
+    background-image: url('/sync_logo_bottom.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+    top: 0;
+    left: calc(0px - 40vw);
+    width: 100%;
+    height: 50rem;
+    z-index: 2;
+  }
+
+  
+}
+
+// SOCIAL MEDIA
+
+.social-media {
+  display: flex;
+  z-index: 1;
+
+  li {
+    padding: 0 0.5rem;
   }
 }
