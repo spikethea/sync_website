@@ -22,8 +22,10 @@ export default (element: HTMLElement) => {
       ease: "bounce",
     }
 
-    gsap.to(logoTop, {...options, xPercent: 50})
-    gsap.to(logoBottom, {...options, xPercent: -50})
+    logoTop
+
+    gsap.fromTo(logoTop, {x: (700/2)}, {...options, x: 0})
+    gsap.fromTo(logoBottom,  {x: (-700/2)}, {...options, x: 0})
   });
 }
 

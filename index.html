@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <link rel="stylesheet" href="../node_modules/@glidejs/glide/dist/css/glide.core.min.css">
     <title>Vite + TS</title>
   </head>
   <body>
@@ -33,33 +33,78 @@
       <header>
         <div id="hero">
           <div class="logo logo_xl">
-            <img id="sync_logo_top" src="/sync_logo_top.svg" alt="">
-            <img id="sync_logo_bottom" src="/sync_logo_bottom.svg" alt="">
+            <!-- <img class="bg" src="dance_lead_poster.jpg" alt=""> -->
+             <video class="bg" src="ama_dance.mp4" muted autoplay> </video>
+            <div id="sync_logo_top" >
+              <img src="/sync_logo_top_mask.svg" alt="">
+            </div>
+            <div id="sync_logo_bottom">
+              <img src="/sync_logo_bottom_mask.svg" alt="">
+            </div>
           </div>
         </div>
       </header>
       <main>
-        <article class="introduction">
-          <h3 class="title">Sync Agency</h3>
-          <div class="grid-2">
-            <h2>Typography</h2>
-            <h4>Integer porttitor viverra auctor. Praesent molestie rutrum cursus. Mauris porta odio non risus bibendum elementum. Sed sodales rutrum dolor, ut interdum est sodales et. Maecenas sem tellus, volutpat vel ex in, sollicitudin blandit felis.</h4>
-          </div>
-        </article>
-        <section class="video-reel__container">
+        <section class="introduction">
+          <h1 class="title">We Are Sync Agency</h3>
+            <h5>Influencer agency focusing on afrobeats, black music with a idk filler text. Influencer agency focusing on afrobeats, black music with a idk filler text. Influencer agency focusing on afrobeats, black music with a idk filler text. Influencer agency focusing on afrobeats, black music with a idk filler text.</h5>
+            <a class="cta" href="#our-services">Our Services</a>
+          </section>
+        <section class="video-reel__container" id="gallery-section">
+          <h1>Gallery</h1>
           <img class="cloud_img" src="/white_cloud.jpg" alt="White Cloud on transparent background">
-          <ul class="video-reel">
-            <div class="card">Cash TikTok Dance</div>
-            <div class="card">Aaron Pieree is 'Mufasa'</div>
-            <div class="card">London Food Hotspots</div>
-            <div class="card">Rollerskate Haul</div>
-            <div class="card">Music Video Release</div>
-          </ul>
-        </section>
-        <section>
+              <div class="glide">
+                  <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides video-reel">
+                      <li class="glide__slide">
+                          <div class="card">
+                              <img src="" alt="">
+                              <p>Cash TikTok Dance</p>
+                              <span>Sub text here</span>
+                          </div>
+                      </li>
+                      <li class="glide__slide">
+                          <div class="card">
+                              <img src="" alt="">
+                              <p>Aaron Pieree is 'Mufasa'</p>
+                              <span>Sub text here</span>
+                          </div>
+                      </li>
+                      <li class="glide__slide">
+                          <div class="card">
+                              <img src="" alt="">
+                              <p>London Food Hotspots</p>
+                              <span>Sub text here</span>
+                          </div>
+                      </li>
+                      <li class="glide__slide">
+                        <div class="card">
+                            <img src="" alt="">
+                            <p>Rollerskate Haul</p>
+                            <span>Sub text here</span>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                      <div class="card">
+                          <img src="" alt="">
+                          <p>Music Video Release</p>
+                          <span>Sub text here</span>
+                      </div>
+                    </li>
+                    </ul>
+                  </div>
+                  <div class="glide__arrows" data-glide-el="controls">
+                      <button class="glide__arrow glide__arrow--left" data-glide-dir="<" aria-label="Previous">&lt;</button>
+                      <button class="glide__arrow glide__arrow--right" data-glide-dir=">" aria-label="Next">&gt;</button>
+                  </div>
+              </div>
+      </section>
+        <section id="our-services">
           <h2 class="title">Our Services</h2>
           <div class="info-grid">
-            <div></div>
+            <div>
+              
+            </div>
             <div></div>
             <div></div>
             <div></div>
@@ -97,9 +142,12 @@
               <li><a href="https://open.spotify.com/user/31jcwc7hcbjnax34nyxvam2aad4m?si=ea5a56d854594642"><i class="fa-brands fa-spotify fa-2xl"></i></a></li>
               <li><a href="https://www.instagram.com/musicmilitia.ent/"><i class="fa-brands fa-tiktok fa-2xl"></i></a></li>
               </ul>
-          </div>
+            </nav>
         </section>
       </main>
+      <footer>
+        <p>© Sync. Sync is a trading name of STEELO  Limited (company number #) registered in England and Wales, registered office #ADDRESS. a list of directors is available from the registered office. [We are vat registered (Vat Registration No #)</p>
+      </footer>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>

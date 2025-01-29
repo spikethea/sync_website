@@ -1,6 +1,7 @@
 import './style.scss'
 import heroSection from './hero-section';
 import contactForm from './contact-form';
+import videoReel from './video-reel';
 
 
 // Scrollbar width calculation
@@ -22,4 +23,10 @@ const contactFormDiv = document.getElementById("get-in-touch");
 
 if (contactFormDiv) {
     contactForm(contactFormDiv)
+}
+
+const videoReelDiv = document.querySelector(".video-reel");
+
+if (videoReelDiv) {
+    videoReel(videoReelDiv);
 }
