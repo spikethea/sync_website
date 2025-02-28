@@ -93,7 +93,7 @@ body {
 main {
   max-width: 1140px;
   margin: 0 auto;
-  padding: 1rem 0;
+
 }
 
 footer {
@@ -426,6 +426,7 @@ form {
 }
 
 .clients {
+  padding: 0 1rem;
   &-logos {
     margin: 0 auto;
     padding: 2rem;
@@ -457,6 +458,12 @@ form {
 
 .glide__arrow--left,
 .glide__arrow--right {
+  text-shadow:
+    3px 3px 0 #FFF,
+    -3px 3px 0 #FFF,
+    -3px -3px 0 #FFF,
+    3px -3px 0 #FFF;
+
   font-weight: bold;
   border-radius: 50%;
   font-family: monospace;
