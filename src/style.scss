@@ -173,39 +173,46 @@ nav {
 
 .form-container {
   min-height: 15rem;
-}
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  margin: 1em 0;
-  overflow: hidden;
-
-  ::placeholder {
-    color: rgb(69, 75, 90);
-    opacity: 1; /* Firefox */
+  .error-message {
+    font-weight: bolder;
+    color: #ff2424;
   }
 
-  &[aria-expanded="true"]{
-    max-height: max-content;
-  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin: 1em;
+    overflow: hidden;
   
-  label {
-    padding-bottom: 0.5em;
-  }
-
-  input, select, textarea {
-    color: white;
-    background-color: var(--sync-secondary-bg);
-    font-size: 1.6em;
-    border: 1px solid grey;
+    ::placeholder {
+      color: rgb(69, 75, 90);
+      opacity: 1; /* Firefox */
+    }
+  
+    &[aria-expanded="true"]{
+      max-height: max-content;
+    }
     
-    padding: 0.2em;
+    label {
+      padding-bottom: 0.5em;
+    }
+  
+    input, select, textarea {
+      color: white;
+      background-color: var(--sync-secondary-bg);
+      font-size: 1.6em;
+      border: 1px solid grey;
+      
+      padding: 0.2em;
+    }
+  
+    transition: max-height 0.3s ease-in;
   }
-
-  transition: max-height 0.3s ease-in;
 }
+
+
 
 // CUSTOM CLASSES
 
@@ -687,11 +694,6 @@ form {
   .form-container {
     form {
     margin: 0 2rem;
-    }
-
-    .error-message {
-      font-weight: bolder;
-      color: #ff2424;
     }
   }
 }
