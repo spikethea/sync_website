@@ -1,9 +1,9 @@
 import Glide from '@glidejs/glide';
 
-interface ApiResponse {
-    data: string;
-    timestamp: number;
-  }
+// interface ApiResponse {
+//     data: string;
+//     timestamp: number;
+//   }
 
 export default (element: HTMLDivElement) => {
     let carousel = null;

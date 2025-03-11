@@ -25,7 +25,7 @@ if (contactFormDiv) {
     contactForm(contactFormDiv)
 }
 
-const videoReelDiv = document.querySelector(".video-reel");
+const videoReelDiv = document.querySelector(".video-reel") as HTMLDivElement;
 
 if (videoReelDiv) {
     videoReel(videoReelDiv);
