@@ -1,4 +1,4 @@
-import './style.scss'
+import './sass/style.scss'
 import heroSection from './hero-section';
 import contactForm from './contact-form';
 import videoReel from './video-reel';

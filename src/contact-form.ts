@@ -1,18 +1,33 @@
 import { z } from 'zod';
 import debounce from 'debounce';
 
-const submitForm = async function(event: Event) {
-    event.preventDefault();
+interface BrandData {
+  [key: string]: string,
+  fname: string,
+  lname: string,
+  brand: string,
+  email: string,
+  message: string
+}
+
+const submitForm = async function(event: Event, formData: BrandData) {
     const element = event.target as HTMLFormElement;
-
-    const formData = new FormData(element);
-    const url = 'https://api.sheetmonkey.io/form/vB1pUYCBvUqnSarEvAgsd6';
-
+    const url = 'https://api.sheetmonkey.io/form/jqDCGSki4ba9BEcF2sxH3J';
+    const dateTime = new Date().toLocaleString();
+    const submissionData = {created: dateTime, ...formData}
+    console.log(submissionData);
     try {
       const response = await fetch(url, {
         method: 'POST',
-        body: formData
-      });
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(submissionData),
+      })
+    
+
+      console.log(response);
 
       if (response.ok) {
         console.log('Form submitted successfully!');
@@ -28,6 +43,7 @@ const submitForm = async function(event: Event) {
   };
 
 export default (element: HTMLElement) => {
+    let validatedData: BrandData | null = null;
     const form = element.querySelector('form');
     const openFormButton = element.querySelector('#open-form-button');
     const submitBtn = element.querySelector('#submit-button') as HTMLButtonElement;
@@ -81,6 +97,7 @@ export default (element: HTMLElement) => {
             })
             .then(
             (res) => {
+                validatedData = res;
                 console.log('Email validation passed', res);
                 errorElem.innerHTML = "";
                 if (!submitBtn) return;
@@ -101,10 +118,16 @@ export default (element: HTMLElement) => {
                 } else {
                     errorElem.innerHTML = err.issues[0].message
                 }
+
+                validatedData = null;
             }
             ).catch((error) => console.log(error))
         };
-        form.addEventListener("submit", submitForm, false);
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          if (!validatedData) return;
+          submitForm(event, validatedData);
+        }, false);
     
         fNameElem.addEventListener("input", debounce(formValidation, 500), false);
         lNameElem.addEventListener("input", debounce(formValidation, 500), false);

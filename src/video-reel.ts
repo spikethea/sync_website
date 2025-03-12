@@ -31,7 +31,7 @@ export default (element: HTMLDivElement) => {
             480: {
                 perView: 1,
                 gap:10,
-                peek: 20
+                peek: 50
             },
             820: {
                 perView: 2,
@@ -46,10 +46,19 @@ export default (element: HTMLDivElement) => {
         //     videoReelCarousel.mount()
         // });
 
+        videos[carousel.index].pause();
 
-        carousel.on('move.after', () => {
+
+        carousel.on('run.after', () => {
             videos[carousel.index].play();
-            videos[carousel.index - 1].pause();
-            videos[carousel.index + 1].pause();
+            if (videos[carousel.index - 1]) {
+                videos[carousel.index - 1].pause();
+            }
+            
+
+            if (videos[carousel.index + 1]) {
+                videos[carousel.index + 1].pause();
+            }
+            
         })
 }

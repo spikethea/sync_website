@@ -1,24 +1,35 @@
-
+@use "./glide.core.scss";
 
 html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: black;
   scroll-behavior: smooth;
-
+  scroll-behavior: smooth;
+  background-color: white;
   // VARIABLES
   --border-radius: 0.2em;
+  --scrollbarWidth: 16px;
   --sync-primary-bg: #213547;
   --sync-secondary-bg: #111621;
+}
+
+body {
+    // DISABLING SCROLL
+    overflow-y: hidden;
+    height: 100%;
 }
 
 
 
 :root {
+  color-scheme: light only;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--sync-primary-bg);
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -75,6 +86,15 @@ a {
   &:hover {
     color: #535bf2;
   }
+
+  &:hover {
+    color: #747bff;
+  }
+
+}
+
+button {
+  background-color: #c4c4c4;
 }
 
 ul {
@@ -127,9 +147,9 @@ section {
     margin: auto;
     align-items: center;
     text-align: center;
-    gap: 3rem;
+    gap: 1rem;
 
-    h1,h5 {
+    h1,h5, h3 {
       margin: 0 1rem;
     }
   }
@@ -149,14 +169,17 @@ article {
 nav {
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
   //padding: 1.2rem 0;
 
   &.header {
+    max-width: 100%;
     margin: 1.2rem;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(186, 186, 186);
   }
 
   .nav-left, .nav-right {
+    width: fit-content;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -259,21 +282,23 @@ nav {
   display: flex;
   &_small {
     height: 50px;
-    width: auto;
+    width: 71px;
   }
 
   &_xl {
-    width: 100%;
+    width: 150vw;
     position: relative;
     flex-direction: column;
     align-items: center;
-    transform: scale(0.6);
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    transform: scale(0.9);
     img {
       width: 350px;
     }
 
     .bg {
-      //filter: blur(20px);
+      opacity: 0;
       top: 0;
       left: 0;
       height: 100%;
@@ -429,6 +454,10 @@ nav {
     margin: auto;
     width: 250px;
   }
+
+  h3 {
+    margin: 0 1.5rem;
+  }
   }
 }
 
@@ -451,6 +480,7 @@ nav {
 // GLIDEJS
 
 .glide {
+  overflow: hidden;
   max-width: 100%;
 }
 
@@ -519,19 +549,6 @@ nav {
   display: flex;
   justify-content: center;
   margin: -6rem 0;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: var(--sync-primary-bg);
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #c4c4c4;
-  }
 }
 
 // ABOUT US
@@ -666,6 +683,8 @@ nav {
 
     .logo_xl {
       transform: none;
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 
@@ -673,6 +692,23 @@ nav {
     li {
       display: flex;
       padding: 0 0.8rem;
+      a {
+        text-wrap: nowrap;
+      }
+    }
+  }
+
+  section {
+    .introduction {
+      gap: 3rem;
+    }
+  }
+
+  .glide__arrows {
+    display: flex;
+
+    .glide__arrow--left, .glide__arrow--right {
+      margin: 0;
     }
   }
 
@@ -686,6 +722,7 @@ nav {
   }
 
   .logo {
+    width: 100%;
     &__text {
       display: block;
     }
@@ -726,13 +763,7 @@ nav {
     margin: 2em 0;
   }
 
-  .glide__arrows {
-    display: flex;
 
-    .glide__arrow--left, .glide__arrow--right {
-      margin: 0;
-    }
-  }
   
   /* CSS */
   #get-in-touch {
