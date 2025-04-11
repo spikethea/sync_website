@@ -15,23 +15,28 @@ export default (element: HTMLElement) => {
   const logoBottom = element.querySelector('#sync_logo_bottom');
   const video = element.querySelector('video');
   const htmlBody = document.querySelector('body');
+  const splashScreen : HTMLElement| null = document.querySelector('#splash-screen');
+  const readyInterval = setInterval( function () {
+    if ( video && video.readyState === 4 ) {
+      if (!htmlBody || !splashScreen) return;
 
-  window.onload = () => {
-    if (!htmlBody) return;
-    htmlBody.style.height = "unset";
-    htmlBody.style.overflowY = "scroll";
+      //ready to start page
+      clearInterval(readyInterval);
 
-    const options = {
-      delay: 0.5,
-      duration:1.5,
-      ease: "bounce",
-      opacity: 1
-    }
+      htmlBody.classList.remove('no-scroll')
+      splashScreen.classList.add('hidden')
 
-    gsap.fromTo(video, {opacity: 0}, {...options});
+      const options = {
+        delay: 1.5,
+        duration: 0.7,
+        ease: "bounce",
+        opacity: 1
+      }
 
-    gsap.fromTo(logoTop, { x: (700/2)}, {...options, x: 0})
-    gsap.fromTo(logoBottom,  {x: (-700/2)}, {...options, x: 0})
-  };
+      gsap.fromTo(video, {opacity: 0}, {...options});
+
+      gsap.fromTo(logoTop, { x: (700/2)}, {...options, x: 0})
+      gsap.fromTo(logoBottom,  {x: (-700/2)}, {...options, x: 0})
+    };
+  }, 150);
 }
-

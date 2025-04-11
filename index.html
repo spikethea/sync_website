@@ -6,9 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/svg+xml" href="/logo.jpg" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Vite + TS</title>
+    <title>SYNC Agency</title>
   </head>
-  <body>
+  <body class="no-scroll">
+    <div id="splash-screen">
+      <img src="/sync_logo.svg" alt="website loading...">
+    </div>
     <div id="app">
       <nav class="flex header">
         <ul class="nav-left">
@@ -20,7 +23,7 @@
             <a href="#">Home</a>
           </li>
           <li>
-            <a href="#portfolio">Portfolio</a>
+            <a href="#portfolio">Our Roster</a>
           </li>
           <li>
             <a href="#about-us">About Us</a>
@@ -56,37 +59,37 @@
               <div class="glide">
                   <div class="glide__track" data-glide-el="track">
                     <ul class="glide__slides video-reel">
-                      <li class="glide__slide">
+                      <li class="glide__slide paused">
                           <div class="card">
-                            <video playsinline src="/tiktok/cach.mp4" alt=""></video>
+                            <video preload="metadata" playsinline src="/tiktok/cach.mp4" alt=""></video>
                               <p>Cacharel</p>
                               <span>&hearts; 42.9K</span>
                           </div>
                       </li>
                       <li class="glide__slide">
                           <div class="card">
-                              <video playsinline src="/tiktok/nellz.mp4"></video>
+                              <video preload="metadata" playsinline src="/tiktok/nellz.mp4"></video>
                               <p>Nellz</p>
                               <span>&hearts; 659.4K</span>
                           </div>
                       </li>
-                      <li class="glide__slide">
+                      <li class="glide__slide ">
                         <div class="card">
-                            <video playsinline src="/tiktok/cacharel2.mp4" alt=""></video>
+                            <video preload="metadata" playsinline src="/tiktok/cacharel2.mp4" alt=""></video>
                             <p>Cacharel</p>
                             <span>&hearts; 19.7K</span>
                         </div>
                       </li>
                       <li class="glide__slide">
                         <div class="card">
-                            <video playsinline src="/tiktok/tommysuave.mp4" alt=""></video>
+                            <video preload="metadata" playsinline src="/tiktok/tommysuave.mp4" alt=""></video>
                             <p>K47</p>
                             <span>&hearts; 13.9K</span>
                         </div>
                       </li>
                       <li class="glide__slide">
                         <div class="card">
-                            <video playsinline src="/tiktok/nellz2.mp4" alt=""></video>
+                            <video preload="metadata" playsinline src="/tiktok/nellz2.mp4" alt=""></video>
                             <p>Nellz</p>
                             <span>&hearts; 176.6K</span>
                         </div>
@@ -147,7 +150,7 @@
               <input data-index="1" type="text" id="lname" name="lastname" placeholder="Your last name..">
           
               <label for="country">Email <Address></Address></label>
-              <input data-index="2" type="email" id="email" name="email" placeholder="email address..">
+              <input data-index="2" type="email" id="email" name="email" placeholder="Email address..">
 
               <label for="brand">Brand</label>
               <input data-index="3" type="text" id="brand" name="brand" placeholder="Your Brand..">
@@ -161,7 +164,7 @@
             </form>
           </article>
           <nav class=" flex button-container">
-            <button aria-controls="form-container" class="cta cta-dark" id="open-form-button">Inquire</button>
+            <button aria-controls="form-container" class="cta" id="open-form-button">Enquire</button>
             <ul class="social-media">
               <li><a href="https://www.linkedin.com/company/105983414/admin/inbox/"><i class="fa-brands fa-linkedin fa-2xl"></i></a></li>
               <li><a href="mailto:info@syncagency.xyz"><i class="fa fa-envelope fa-2xl"></i></a></li>
@@ -171,7 +174,7 @@
         </section>
       </main>
       <footer>
-        <p>© Sync. Sync is a trading name of STEELO  Limited (company number #) registered in England and Wales, registered office #ADDRESS. a list of directors is available from the registered office. [We are vat registered (Vat Registration No #)</p>
+        <p>Sync Agency Ltd. &copy; 2024. SYNC Agency, is a trading name (formerly Angel Management) for the talent management agency registered in England and Wales, registered office 8 Denmark Street, London, England, WC2H 8LS. A list of directors is available from the registered office.</p>
       </footer>
     </div>
     <script type="module" src="/src/main.ts"></script>

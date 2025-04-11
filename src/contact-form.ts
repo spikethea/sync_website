@@ -32,7 +32,7 @@ const submitForm = async function(event: Event, formData: BrandData) {
       if (response.ok) {
         console.log('Form submitted successfully!');
         // Reset form fields if needed
-        element.innerHTML = "<h2>Thank you!</h2><h5>We have received your inquiry and will get back to you shortly.</h5>";
+        element.innerHTML = "<h2>Thank you!</h2><h5>We have received your Enquiry and will get back to you shortly.</h5>";
         return;
       } else {
         console.error('Form submission failed:', response.status);
@@ -61,7 +61,7 @@ export default (element: HTMLElement) => {
             } else {
                 form.style.maxHeight = `0px`
                 form.ariaExpanded = 'false';
-                openFormButton.textContent = 'Inquire';
+                openFormButton.textContent = 'Enquire';
             }
         })
     }

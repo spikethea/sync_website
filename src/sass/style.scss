@@ -17,11 +17,56 @@ html {
 
 body {
     // DISABLING SCROLL
-    overflow-y: hidden;
-    height: 100%;
+    &.no-scroll {
+      overflow-y: hidden;
+      position: fixed;
+      height: 100vh;
+      overscroll-behavior: none;
+    }
 }
 
+#splash-screen {
+  display: block;
+  opacity: 1;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
 
+  &.hidden {
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.7s ease-in;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+      transform-origin: center
+    }
+    50% {
+      transform: rotate(180deg);
+      transform-origin: center
+    }
+    100% {
+      transform: rotate(360deg);
+      transform-origin: center
+    }
+  }
+
+  img {
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    top: calc(50% - 2.5rem);
+    left: calc(50% - 2.5rem);
+    
+    animation: rotate 2s infinite linear;
+  }
+}
 
 :root {
   color-scheme: light only;
@@ -153,6 +198,8 @@ section {
       margin: 0 1rem;
     }
   }
+
+
 }
 
 article {
@@ -176,6 +223,9 @@ nav {
     max-width: 100%;
     margin: 1.2rem;
     border-bottom: 1px solid rgb(186, 186, 186);
+    li {
+      display: none;
+    }
   }
 
   .nav-left, .nav-right {
@@ -185,11 +235,7 @@ nav {
     align-items: center;
     padding: 0;
   }
-  
-  li {
-      display: none;
-      list-style-type: none;
-  }
+
 }
 
 // CONTACT FORM
@@ -200,6 +246,11 @@ nav {
   .error-message {
     font-weight: bolder;
     color: #ff2424;
+  }
+
+  #submit-button {
+    padding: 0.5rem 2rem;
+    margin-left: auto;
   }
 
   form {
@@ -233,6 +284,13 @@ nav {
   
     transition: max-height 0.3s ease-in;
   }
+}
+
+#open-form-button {
+  min-width: 10rem;
+  max-width: none;
+  width: 100%;
+  margin: auto;
 }
 
 
@@ -357,6 +415,7 @@ nav {
 
   &__text {
     display: none;
+    pointer-events: none;
     filter: drop-shadow(0 0 0.75rem white);
     position: absolute;
     top: 100px;
@@ -385,11 +444,36 @@ nav {
   // overflow-x: scroll;
   
   .glide__slide {
+    position: relative;
     transition: transform 0.3s ease-out;
     transform: scale(0.95);
 
     &--active {
       transform: none;
+
+      &::before {
+        pointer-events: none;
+        content: '';
+        display: block;
+        position: absolute;
+        background-image: url('/play-button.svg');
+        background-size: contain;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+
+        width: 5rem;
+        height: 5rem;
+        opacity: 0;
+        z-index: 5;
+      }
+  
+      &.paused {
+        &::before {
+          transition: opacity 0.3s ease-in;
+          opacity: 1;
+        }
+      }
     }
   }
 
@@ -485,6 +569,7 @@ nav {
 }
 
 .glide__arrows {
+  pointer-events: none;
   width: 100%;
   display: none;
   justify-content: space-between;
@@ -495,6 +580,7 @@ nav {
 
 .glide__arrow--left,
 .glide__arrow--right {
+  pointer-events: auto;
   text-shadow:
     3px 3px 0 #FFF,
     -3px 3px 0 #FFF,
@@ -702,6 +788,21 @@ nav {
     .introduction {
       gap: 3rem;
     }
+
+    &#get-in-touch {
+      padding: 2rem 0;
+
+      nav li {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      #open-form-button {
+        max-width: 160px;
+        margin: 0;
+      }
+    }
   }
 
   .glide__arrows {
@@ -730,7 +831,7 @@ nav {
 
   .form-container {
     form {
-    margin: 0 2rem;
+    margin: 2rem;
     }
   }
 }
@@ -813,7 +914,7 @@ nav {
   .logo {
     &__text {
       position: fixed;
-      left: 60px;
+      left: 23px;
       top: 150px;
     }
   }
