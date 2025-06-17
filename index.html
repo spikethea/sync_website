@@ -9,28 +9,38 @@
     <title>SYNC Agency</title>
   </head>
   <body class="no-scroll">
+    <nav role="navigation" class="null">
+      <ul class="links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/">Projects</a></li>
+        <li><a href="/contact-me">Contact</a></li>
+      </ul>
+    </nav>
     <div id="splash-screen">
       <img src="/sync_logo.svg" alt="website loading...">
     </div>
     <div id="app">
       <nav class="flex header">
-        <ul class="nav-left">
+        <ul class="nav-right">
           <div class="logo logo_small">
             <img src="/sync_logo.svg" alt="">
             <h2 class="logo__text">SYNC</h2>
           </div>
+        </ul>
+        <ul class="nav-right">
+          <button aria-expanded="false" class="hamburger_cta null">
+            <img src="/rectangle.svg"/>
+            <img src="/rectangle.svg"/>
+          </button>
           <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#portfolio">Our Roster</a>
+            <a href="#portfolio">Our Creators</a>
           </li>
           <li>
             <a href="#about-us">About Us</a>
           </li>
-        </ul>
-        <ul class="nav-right">
-          <a class="cta" href="#get-in-touch">Contact Us</a>
+          <li>
+            <a class="cta cta-dark" href="#get-in-touch">Contact Us</a>
+          </li>
         </ul>
       </nav>
       <header>
@@ -49,12 +59,12 @@
       </header>
       <main>
         <section class="introduction">
-          <h1 class="title">We Are Sync</h1>
-            <h5>Creative agency supporting talent & artists  &#128279;</h5>
+          <!-- <h1 class="title">We Are Sync</h1> -->
+            <h4>Creative agency supporting talent & artists  &#128279;</h4>
             <a class="cta cta-dark" href="#clients">Our Clients</a>
           </section>
         <section class="video-reel__container" id="portfolio">
-          <h3>Portfolio</h3>
+          <h3>Our Creators</h3>
           <img class="cloud_img" src="/white_cloud.jpg" alt="White Cloud on transparent background">
               <div class="glide">
                   <div class="glide__track" data-glide-el="track">
@@ -116,9 +126,10 @@
           </div>
           <div class="clients-logos">
             <img src="/clients/EMI.svg" alt="EMI">
-            <img src="/clients/Fifth.svg" alt="EMI">
-            <img src="/clients/Sony.svg" alt="EMI">
-            <img src="/clients/Universal.svg" alt="EMI">
+            <img src="/clients/Fifth.svg" alt="Fifth">
+            <img src="/clients/Sony.svg" alt="Sony">
+            <img src="/clients/Universal.svg" alt="Universal">
+            <img src="/clients/Warner_Music_Group.svg" alt="Warner Music Group">
           </div>
         </section>
         <section class="about-us" id="about-us">
@@ -132,7 +143,7 @@
           </figure>
           <article>
             <h3>About Us</h3>
-            <h4>SYNC Agency began in 2022 as a talent management company, dedicated to nurturing emerging creators with tailored support and growth strategies.</h4>
+            <h5>SYNC Agency began in 2022 as a talent management company, dedicated to nurturing emerging creators with tailored support and growth strategies.</h4>
             <h5>SYNC now connects brands with the heart of music—whether
               it's Afrobeats, Rap, Pop, or beyond. With a strong London-based dance community and an expanding roster of diverse
               creators, we deliver high-impact content that resonates with
@@ -141,22 +152,24 @@
         </section>
         <section id="get-in-touch">
           <h3 class="title">Contact Us</h3>
+          <h6 class="title">info@syncagency.xyz | +44 7777 395701</h6>
+          
           <article class="form-container" >
             <form id="form" aria-expanded="true">
               <label for="fname">First Name</label>
-              <input data-index="0" type="text" id="fname" name="firstname" placeholder="Your name..">
+              <input data-index="0" type="text" id="fname" name="firstname" placeholder="Your name...">
           
               <label for="lname">Last Name</label>
-              <input data-index="1" type="text" id="lname" name="lastname" placeholder="Your last name..">
+              <input data-index="1" type="text" id="lname" name="lastname" placeholder="Your last name...">
           
               <label for="country">Email <Address></Address></label>
-              <input data-index="2" type="email" id="email" name="email" placeholder="Email address..">
+              <input data-index="2" type="email" id="email" name="email" placeholder="Email address...">
 
               <label for="brand">Brand</label>
-              <input data-index="3" type="text" id="brand" name="brand" placeholder="Your Brand..">
+              <input data-index="3" type="text" id="brand" name="brand" placeholder="Your Brand...">
 
               <label for="message">Message</label>
-              <textarea data-index="4" id="message" name="message" placeholder="Please write your message here.." style="height:200px"></textarea>
+              <textarea data-index="4" id="message" name="message" placeholder="Please write your message here..." style="height:200px"></textarea>
               
               <p class="error-message"></p>
               <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
